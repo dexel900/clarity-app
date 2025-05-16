@@ -87,6 +87,8 @@
     <h2>🛠️ Entwicklermodus</h2>
     <textarea id="codeEditor" class="code-editor"></textarea>
     <button onclick="applyChanges()">Änderungen anwenden</button>
+    <button onclick="exportCode()">⬇️ Code exportieren</button>
+  </div>
   </div>
 
   <script>
@@ -134,6 +136,9 @@
       const url = URL.createObjectURL(blob);
       window.location = url;
     }
+  
+
+    // Service Worker registrieren
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
         navigator.serviceWorker.register("service-worker.js").then(
@@ -141,6 +146,16 @@
           (err) => console.error("❌ Service Worker Fehler", err)
         );
       });
+    }
+  
+
+    function exportCode() {
+      const code = document.getElementById("codeEditor").value;
+      const blob = new Blob([code], { type: "text/html" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "clarity-export.html";
+      a.click();
     }
   </script>
 </body>
