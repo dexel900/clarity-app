@@ -4,8 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>CLARITY</title>
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#1a1a1a" />
   <link rel="apple-touch-icon" href="icon-192.png">
   <style>
     body {
@@ -69,19 +67,6 @@
     .hidden {
       display: none;
     }
-    .tabs {
-      display: flex;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-    }
-    .tabs button {
-      background: #ddd;
-      color: #000;
-    }
-    .tabs button.active {
-      background: #1a1a1a;
-      color: white;
-    }
     .code-section {
       display: none;
     }
@@ -90,12 +75,15 @@
     }
   </style>
 </head>
+
+
+
+
 <body>
   <h1>CLARITY</h1>
 
-  <div class="question-box">
-    <h2 id="question">Wohin geht's?</h2>
-    <button onclick="nextQuestion()">Nächste Frage</button>
+  <div class="hallo">
+    <h2 id="hallo">Wohin geht's?</h2>
   </div>
 
   <div class="journal-box">
@@ -105,30 +93,24 @@
 
   <div class="affirmation-box">
     <h2 id="affirmation">Ich darf mir Zeit nehmen.</h2>
-    <button onclick="nextAffirmation()">Neue Affirmation</button>
   </div>
 
   <button id="toggleDevBtn" onclick="toggleDevMode()">🛠️ Entwicklermodus öffnen</button>
 
   <div class="developer-box hidden" id="developerBox">
     <h2>🛠️ Entwicklermodus</h2>
-    <div class="tabs">
-      <button onclick="switchTab('html')" class="active">HTML</button>
-      <button onclick="switchTab('css')">CSS</button>
-      <button onclick="switchTab('js')">JavaScript</button>
-    </div>
     <div class="code-section active" id="html-section">
       <textarea id="htmlCode"></textarea>
-    </div>
-    <div class="code-section" id="css-section">
-      <textarea id="cssCode"></textarea>
-    </div>
-    <div class="code-section" id="js-section">
-      <textarea id="jsCode"></textarea>
     </div>
     <button onclick="applyCombinedChanges()">Änderungen anwenden</button>
     <button onclick="exportCombinedCode()">⬇️ Code exportieren</button>
   </div>
+
+
+
+
+
+
 
   <script>
     const questions = [
