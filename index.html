@@ -73,13 +73,19 @@
     .code-section.active {
       display: block;
     }
+
+
   </style>
+
+
 </head>
 
 
 
 
 <body>
+
+
   <h1>CLARITY</h1>
 
   <div class="hallo">
@@ -106,91 +112,7 @@
     <button onclick="exportCombinedCode()">⬇️ Code exportieren</button>
   </div>
 
-
-
-
-
-
-
-  <script>
-    const questions = [
-      "Wohin geht's?",
-      "Was stimmt gerade nicht mehr?",
-      "Was in mir will gehört werden?",
-      "Was drücke ich weg?",
-      "Was fühlt sich echt an?"
-    ];
-
-    const affirmations = [
-      "Ich darf mir Zeit nehmen.",
-      "Ich bin nicht zu spät.",
-      "Ich muss nichts beweisen.",
-      "Ich darf weich sein.",
-      "Ich bin genug – auch jetzt."
-    ];
-
-    function nextQuestion() {
-      const q = questions[Math.floor(Math.random() * questions.length)];
-      document.getElementById("question").innerText = q;
-    }
-
-    function nextAffirmation() {
-      const a = affirmations[Math.floor(Math.random() * affirmations.length)];
-      document.getElementById("affirmation").innerText = a;
-    }
-
-    function toggleDevMode() {
-      const devBox = document.getElementById("developerBox");
-      const btn = document.getElementById("toggleDevBtn");
-      devBox.classList.toggle("hidden");
-      btn.textContent = devBox.classList.contains("hidden") ? "🛠️ Entwicklermodus öffnen" : "🛠️ Entwicklermodus schließen";
-    }
-
-    function switchTab(tab) {
-      document.querySelectorAll(".tabs button").forEach(btn => btn.classList.remove("active"));
-      document.querySelectorAll(".code-section").forEach(sec => sec.classList.remove("active"));
-      document.querySelector(`[onclick="switchTab('${tab}')"]`).classList.add("active");
-      document.getElementById(`${tab}-section`).classList.add("active");
-    }
-
-    window.onload = () => {
-      document.getElementById("htmlCode").value = document.body.innerHTML;
-      document.getElementById("cssCode").value = document.querySelector("style").innerText;
-      document.getElementById("jsCode").value = Array.from(document.scripts).map(s => s.innerText).join("\n\n");
-    };
-
-    function applyCombinedChanges() {
-      const html = document.getElementById("htmlCode").value;
-      const css = document.getElementById("cssCode").value;
-      const js = document.getElementById("jsCode").value;
-      const fullHTML = `<!DOCTYPE html><html><head><meta charset='UTF-8'><title>CLARITY</title><style>${css}</style></head><body>${html}<script>${js}<\/script></body></html>`;
-      const blob = new Blob([fullHTML], { type: "text/html" });
-      const url = URL.createObjectURL(blob);
-      window.location = url;
-    }
-
-    function exportCombinedCode() {
-      const html = document.getElementById("htmlCode").value;
-      const css = document.getElementById("cssCode").value;
-      const js = document.getElementById("jsCode").value;
-      const fullHTML = `<!DOCTYPE html><html><head><meta charset='UTF-8'><title>CLARITY</title><style>${css}</style></head><body>${html}<script>${js}<\/script></body></html>`;
-      const blob = new Blob([fullHTML], { type: "text/html" });
-      const a = document.createElement("a");
-      a.href = URL.createObjectURL(blob);
-      a.download = "clarity-export.html";
-      a.click();
-    }
-
-    // Service Worker registrieren
-    if ("serviceWorker" in navigator) {
-      window.addEventListener("load", () => {
-        navigator.serviceWorker.register("service-worker.js").then(
-          () => console.log("✅ Service Worker registriert"),
-          (err) => console.error("❌ Service Worker Fehler", err)
-        );
-      });
-    }
-  </script>
+    
 </body>
 </html>
 
