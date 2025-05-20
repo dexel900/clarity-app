@@ -1,90 +1,15 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>CLARITY</title>
   <link rel="apple-touch-icon" href="icon-192.png">
-  <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-      background: #f4f4f4;
-      color: #1a1a1a;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 2rem;
-    }
-    h1 {
-      text-align: center;
-    }
-    .question-box, .journal-box, .affirmation-box, .developer-box {
-      background: white;
-      padding: 1.5rem;
-      margin: 1rem 0;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      width: 100%;
-      max-width: 500px;
-    }
-    .one {
-      width: 90%;
-      padding: 1rem;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      resize: vertical;
-      font-family: monospace;
-      min-height: 150px;
-    }
-    textarea {
-      width: 90%;
-      padding: 1rem;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      resize: vertical;
-      font-family: monospace;
-      min-height: 60vh;
-    }
-    button {
-      padding: 0.6rem 1.2rem;
-      font-size: 1rem;
-      margin-top: 1rem;
-      border: none;
-      background: #1a1a1a;
-      color: white;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #333;
-    }
-    #toggleDevBtn {
-      margin-top: 2rem;
-    }
-    .hidden {
-      display: none;
-    }
-    .code-section {
-      display: none;
-    }
-    .code-section.active {
-      display: block;
-    }
-
-
-  </style>
-
 
 </head>
 
-
-
-
 <body>
-
 
   <h1>CLARITY</h1>
 
@@ -100,19 +25,8 @@
   <div class="affirmation-box">
     <h2 id="affirmation">Ich darf mir Zeit nehmen.</h2>
   </div>
-
-  <button id="toggleDevBtn" onclick="toggleDevMode()">🛠️ Entwicklermodus öffnen</button>
-
-  <div class="developer-box hidden" id="developerBox">
-    <h2>🛠️ Entwicklermodus</h2>
-    <div class="code-section active" id="html-section">
-      <textarea id="htmlCode"></textarea>
-    </div>
-    <button onclick="applyCombinedChanges()">Änderungen anwenden</button>
-    <button onclick="exportCombinedCode()">⬇️ Code exportieren</button>
-  </div>
-
     
 </body>
+
 </html>
 
